@@ -1,0 +1,183 @@
+/* Custom Filament Styling for Ring Road Cosmetics */
+
+/* Reduce top padding/margin between navbar and main content */
+.fi-layout {
+    --fi-sidebar-width: 16rem;
+}
+
+.fi-main {
+    padding-top: 1rem !important;
+    margin-top: 0 !important;
+}
+
+.fi-main-content {
+    padding-top: 0.5rem !important;
+    margin-top: 0 !important;
+}
+
+/* Adjust header spacing */
+.fi-header {
+    margin-bottom: 1rem !important;
+    padding-bottom: 0.5rem !important;
+}
+
+/* Widget grid improvements */
+.fi-wi-stats-overview {
+    gap: 1rem !important;
+}
+
+.fi-wi-stats-overview-stat {
+    margin-bottom: 0.75rem !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .fi-main {
+        padding: 0.5rem !important;
+    }
+
+    .fi-main-content {
+        padding: 0.25rem !important;
+    }
+
+    .fi-wi-stats-overview {
+        grid-template-columns: 1fr !important;
+        gap: 0.5rem !important;
+    }
+
+    .fi-sidebar {
+        transform: translateX(-100%) !important;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .fi-wi-stats-overview {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (min-width: 1025px) {
+    .fi-wi-stats-overview {
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+}
+
+/* Table responsiveness */
+.fi-ta-table {
+    font-size: 0.875rem;
+}
+
+@media (max-width: 768px) {
+    .fi-ta-table {
+        font-size: 0.75rem;
+    }
+
+    .fi-ta-header-cell,
+    .fi-ta-cell {
+        padding: 0.5rem 0.25rem !important;
+    }
+}
+
+/* Widget card improvements */
+.fi-wi-stats-overview-stat-card {
+    padding: 1rem !important;
+    border-radius: 0.5rem !important;
+}
+
+/* Chart widget adjustments */
+.fi-wi-chart {
+    margin-bottom: 1.5rem !important;
+}
+
+/* Compact spacing for better use of space */
+.fi-section-content {
+    padding: 1rem !important;
+}
+
+.fi-section-header {
+    padding: 0.75rem 1rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+/* Navigation improvements */
+.fi-sidebar-nav {
+    padding-top: 0.5rem !important;
+}
+
+/* Page header adjustments */
+.fi-page-header {
+    margin-bottom: 1rem !important;
+    padding-bottom: 0.5rem !important;
+}
+
+/* Action button spacing */
+.fi-ac-button-group {
+    gap: 0.5rem !important;
+}
+
+/* Filter section improvements */
+.fi-ta-filters {
+    margin-bottom: 1rem !important;
+    padding: 0.75rem !important;
+}
+
+/* Breadcrumb adjustments */
+.fi-breadcrumbs {
+    margin-bottom: 0.5rem !important;
+}
+
+/* Custom responsive grid for widgets */
+.fi-widgets {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+@media (max-width: 640px) {
+    .fi-widgets {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+}
+
+/* Improve table header visibility */
+.fi-ta-header {
+    background-color: rgb(249 250 251) !important;
+    border-bottom: 2px solid rgb(229 231 235) !important;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+    .fi-ta-header {
+        background-color: rgb(17 24 39) !important;
+        border-bottom: 2px solid rgb(55 65 81) !important;
+    }
+}
+
+/* Export button styling */
+.fi-ac-btn-group {
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+}
+
+/* Notification positioning */
+.fi-no-notifications {
+    top: 4rem !important;
+}
+
+/* Sidebar responsive behavior */
+@media (max-width: 1024px) {
+    .fi-layout {
+        --fi-sidebar-width: 14rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .fi-layout {
+        --fi-sidebar-width: 100%;
+    }
+
+    .fi-main {
+        margin-left: 0 !important;
+    }
+}
