@@ -45,6 +45,34 @@
     .fi-ta-cell {
         padding: 0.375rem 0.25rem !important;
     }
+
+    /* Mobile navigation improvements */
+    .fi-topbar {
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 40 !important;
+        background: white !important;
+        border-bottom: 1px solid rgb(229 231 235) !important;
+    }
+
+    /* Better mobile menu button */
+    .fi-sidebar-open-btn {
+        padding: 0.5rem !important;
+        margin-right: 0.5rem !important;
+    }
+
+    /* Improve mobile touch targets */
+    .fi-btn {
+        min-height: 44px !important;
+        padding: 0.5rem 1rem !important;
+    }
+
+    /* Mobile-friendly dropdowns */
+    .fi-dropdown-panel {
+        max-width: calc(100vw - 2rem) !important;
+        left: 1rem !important;
+        right: 1rem !important;
+    }
 }
 
 /* Tablet responsiveness */
@@ -129,5 +157,32 @@
 
 .fi-sidebar-nav::-webkit-scrollbar-thumb:hover {
     background: rgb(107 114 128);
+}
+
+/* Additional mobile navigation enhancements */
+@media (max-width: 480px) {
+    /* Extra small screens (phones in portrait) */
+    .fi-logo {
+        font-size: 0.875rem !important;
+        max-width: 150px !important;
+    }
+
+    .fi-topbar {
+        padding: 0.375rem 0.75rem !important;
+    }
+
+    .fi-main {
+        padding: 0.125rem !important;
+    }
+
+    .fi-main-content {
+        padding: 0.0625rem !important;
+    }
+
+    /* Smaller action buttons on very small screens */
+    .fi-btn {
+        font-size: 0.875rem !important;
+        padding: 0.375rem 0.75rem !important;
+    }
 }
 </style>
