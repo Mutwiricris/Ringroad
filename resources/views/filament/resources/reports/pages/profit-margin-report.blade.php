@@ -239,9 +239,9 @@
                                 <td class="table-cell product-name">{{ $item->product_name }}</td>
                                 <td class="table-cell">{{ $item->category ?? 'Uncategorized' }}</td>
                                 <td class="table-cell">{{ number_format($item->units_sold) }}</td>
-                                <td class="table-cell">${{ number_format($item->total_revenue, 2) }}</td>
-                                <td class="table-cell">${{ number_format($item->total_cost, 2) }}</td>
-                                <td class="table-cell">${{ number_format($item->total_profit, 2) }}</td>
+                                <td class="table-cell">Ksh{{ number_format(Kshitem->total_revenue, 2) }}</td>
+                                <td class="table-cell">Ksh{{ number_format($item->total_cost, 2) }}</td>
+                                <td class="table-cell">Ksh{{ number_format($item->total_profit, 2) }}</td>
                                 <td class="table-cell">{{ number_format($item->profit_margin, 1) }}%</td>
                                 <td class="table-cell">
                                     <span class="status-badge {{ $item->profit_margin > 20 ? 'status-profitable' : 'status-low-margin' }}">

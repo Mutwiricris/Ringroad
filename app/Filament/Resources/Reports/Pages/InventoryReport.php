@@ -128,9 +128,40 @@ class InventoryReport extends Page implements HasForms
         ];
     }
 
-    public function exportPdf(): void
+    public function exportPdf()
     {
-        $this->js('alert("PDF export functionality will be implemented next")');
+        // Get filter names for display
+        $categoryName = null;
+        $locationName = null;
+        
+        if ($this->data['category_id']) {
+            $categoryName = Category::find($this->data['category_id'])?->name;
+        }
+        
+        if ($this->data['location_id']) {
+            $locationName = Location::find($this->data['location_id'])?->name;
+        }
+        
+        $filters = [
+            'date_from' => $this->data['date_from'],
+            'date_to' => $this->data['date_to'],
+            'category_name' => $categoryName,
+            'location_name' => $locationName,
+        ];
+        
+        $pdf = \PDF::loadView('reports.pdf.inventory-report', [
+            'reportData' => $this->reportData,
+            'summaryStats' => $this->summaryStats,
+            'filters' => $filters,
+        ]);
+        
+        $filename = 'inventory-report-' . now()->format('Y-m-d-H-i-s') . '.pdf';
+        
+        return response()->streamDownload(function () use ($pdf) {
+            echo $pdf->output();
+        }, $filename, [
+            'Content-Type' => 'application/pdf',
+        ]);
     }
 
     public function getStats(): array

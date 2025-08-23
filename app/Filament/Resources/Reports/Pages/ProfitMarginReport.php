@@ -179,9 +179,35 @@ class ProfitMarginReport extends Page implements HasForms
         ];
     }
 
-    public function exportPdf(): void
+    public function exportPdf()
     {
-        $this->js('alert("PDF export functionality will be implemented next")');
+        // Get filter names for display
+        $categoryName = null;
+        
+        if ($this->data['category_id']) {
+            $categoryName = Category::find($this->data['category_id'])?->name;
+        }
+        
+        $filters = [
+            'date_from' => $this->data['date_from'],
+            'date_to' => $this->data['date_to'],
+            'category_name' => $categoryName,
+            'min_margin' => $this->data['min_margin'],
+        ];
+        
+        $pdf = \PDF::loadView('reports.pdf.profit-margin-report', [
+            'reportData' => $this->reportData,
+            'summaryStats' => $this->summaryStats,
+            'filters' => $filters,
+        ]);
+        
+        $filename = 'profit-margin-report-' . now()->format('Y-m-d-H-i-s') . '.pdf';
+        
+        return response()->streamDownload(function () use ($pdf) {
+            echo $pdf->output();
+        }, $filename, [
+            'Content-Type' => 'application/pdf',
+        ]);
     }
 
     public function getStats(): array
